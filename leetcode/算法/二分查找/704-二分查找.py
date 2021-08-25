@@ -30,3 +30,26 @@ class Solution:
         return -1 # 未查询到时返回-1
 print(Solution().search([-1,0,3,5,9,12],9))
 print(Solution().search([-1,0,3,5,9,12],2))
+
+
+"""
+    #java解法
+    class Solution {
+    public int search(int[] nums, int target) {
+        int low = 0;
+        int height = nums.length-1;
+        int mid;
+        while(low<=height){
+            mid = low+(height-low)/2; //相当于(height+low)/2,可以防止溢出
+            if(nums[mid]==target){
+                return mid;
+            }if(nums[mid]>target){
+                height=mid-1;
+            }else{
+                low=mid+1;
+            }
+        }
+        return -1;
+    }
+    } 
+"""
