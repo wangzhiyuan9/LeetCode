@@ -22,4 +22,15 @@
 from typing import List
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        pass
+        """
+            哈希表
+        """
+        hashdict= {}
+        for index,elment in enumerate(nums):
+            if target-elment in hashdict:
+                return [hashdict[target-elment],index]
+            hashdict[elment] = index
+        return []
+print(Solution().twoSum([2,7,11,15],9))
+print(Solution().twoSum([3,3],6))
+        

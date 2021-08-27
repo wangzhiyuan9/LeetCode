@@ -24,9 +24,15 @@
 from typing import List
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
-        if len(nums)>1:
-            pass
-        return nums[0]
+            '''
+                动态规划
+            '''
+            max_num = nums[0]
+            pre = 0
+            for i in nums:
+                pre = max(pre+i,i)
+                max_num = max(pre,max_num)
+            return max_num
 
 print(Solution().maxSubArray([1]))
 print(Solution().maxSubArray([-2,1,-3,4,-1,2,1,-5,4]))

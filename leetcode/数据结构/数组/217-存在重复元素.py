@@ -19,9 +19,15 @@
 from typing import List
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
-        if len(set(nums)) == len(nums):
-            return False
-        return True
+        '''
+            哈希表
+        '''
+        hashdict=dict()
+        for i in nums:
+            if i in hashdict:
+                return True
+            hashdict[i]=0
+        return False
 
 
 print(Solution().containsDuplicate([1,2,3,1]))
