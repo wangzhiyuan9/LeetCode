@@ -26,5 +26,28 @@ class Solution:
     def rotate(self, nums: List[int], k: int) -> None:
         """
         Do not return anything, modify nums in-place instead.
+
+        三次翻转：
+            1.将所有值翻转
+            2.将[0,k-1]部分翻转
+            3.将[k,len(nums)-1]部分翻转
         """
-        pass
+        k %= len(nums) # 求取有效的移动次数
+        nums = self.reverse(nums,0,len(nums)-1)
+        nums = self.reverse(nums,0,k-1)
+        nums = self.reverse(nums,k,len(nums)-1)
+        return nums
+
+    
+    def reverse(self,nums,start,end):
+        """
+            数组翻转
+            将start和end所指的数值交换位置，之后start右移，end左移
+            知道end=start
+        """
+        while end>start:
+            nums[start] , nums[end] = nums[end] , nums[start]
+            start += 1
+            end -= 1
+        return nums
+print(Solution().rotate([1,2,3],4))
