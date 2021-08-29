@@ -21,4 +21,26 @@
 from typing import List
 class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
-        pass
+        """
+            双指针
+                定义左右指针  左指针为首位   右指针为末位
+                左右指针所指值的和 若等于target 返回[left+1,right+1]
+                若左右指针所指值的和 小于target 左指针右移一位
+                若左右指针所指值的和 大于target 右指针左移一位
+
+                若左右指针的值相等 则说明没有符合条件的数值
+        """
+        left,right =0,len(numbers)-1
+        while left!=right:
+            if numbers[left]+numbers[right] == target:
+                return [left+1,right+1]
+            elif numbers[left]+numbers[right] < target:
+                left+=1
+            else:
+                right -= 1
+        return [-1,-1]
+
+
+print(Solution().twoSum([2,7,11,15],9))
+print(Solution().twoSum([2,3,4],6))
+print(Solution().twoSum([-1,0],-1))
