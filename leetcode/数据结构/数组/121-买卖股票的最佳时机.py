@@ -23,12 +23,18 @@ class Solution:
         """
 
         len_ = len(prices)
+        # 临界条件
         if len_==0:
             return 0
+        # 用于存储第i天的最大收益
         dp = [0]*len_
+        # 用于存储股票的最低价
         minprice = prices[0]
+
         for i in range(1,len_):
+            # 先求取第0天到第i天直接的股票最低价格
             minprice = min(minprice,prices[i])
+            # 求取第i-1天和第i天的收益最大值
             dp[i] = max(dp[i-1],prices[i]-minprice)
         return dp[-1]
 print(Solution().maxProfit([7,1,5,3,6,4]))

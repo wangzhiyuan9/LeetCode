@@ -25,7 +25,7 @@ from typing import List
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
             '''
-                动态规划
+                贪心算法
             '''
             max_num = nums[0]
             pre = 0
