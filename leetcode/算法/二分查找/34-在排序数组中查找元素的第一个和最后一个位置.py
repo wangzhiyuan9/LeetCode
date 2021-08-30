@@ -20,5 +20,28 @@
 from typing import List
 class Solution:
     def searchRange(self, nums: List[int], target: int) -> List[int]:
-        
-        pass
+        """
+            二分法  分别查找第一个target的下标，以及第一个大于target的下标
+        """
+
+        if not nums:
+            return [-1,-1]
+        def find(nums,target):
+            left,right = 0,len(nums)-1
+            while left<=right:
+                mid = (left+right)//2
+                if nums[mid] >= target:
+                    right = mid - 1
+                else:
+                    left = mid + 1
+            return left
+        min_ = find(nums,target)
+        max_ = find(nums,target+1) - 1
+        if (min_ ==len(nums)) or (nums[min_]!=target):
+            return[-1,-1]
+        else:
+            return [min_,max_]
+
+
+print(Solution().searchRange([5,7,7,8,8,10],8))
+print(Solution().searchRange([5,7,7,8,8,10],6))
