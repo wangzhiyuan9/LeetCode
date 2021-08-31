@@ -17,22 +17,15 @@
 
 
 """
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
-def list_node(numbers):
-    dummyRoot = ListNode(0)
-    ptr = dummyRoot
-    for number in numbers:
-        ptr.next = ListNode(number)
-        ptr = ptr.next
-    ptr = dummyRoot.next
-    return ptr
+from ListNode import listnode,ListNode
 
 class Solution:
     def middleNode(self, head: ListNode) -> ListNode:
-        print(head.next.next.next)
-        pass
 
-print(Solution().middleNode(list_node([1,2,3])))
+        
+        return head
+
+ln = listnode()
+res = Solution().middleNode(ln.list_node([1,2,3,4,5]))
+print(ln.listNodeToString(res))
+

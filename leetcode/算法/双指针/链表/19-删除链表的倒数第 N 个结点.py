@@ -16,20 +16,43 @@
     输出：[1]
 
 """
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
-def list_node(numbers):
-    dummyRoot = ListNode(0)
-    ptr = dummyRoot
-    for number in numbers:
-        ptr.next = ListNode(number)
-        ptr = ptr.next
-    ptr = dummyRoot.next
-    return ptr
+
+from ListNode import listnode,ListNode
 class Solution:
     def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
-        pass
-    
-print(Solution().removeNthFromEnd(list_node([1,2,3,4,5]),2))
+        """
+            快慢双指针
+            快的指针比慢的指针快n  因此快指针到达尾部时 慢指针正好指向倒数第n个节点
+        """
+        fast = head
+        dummy = ListNode(0,head)
+        slow = dummy
+        for i in range(n):
+            fast = fast.next
+        while fast:
+            fast = fast.next
+            slow = slow.next
+        slow.next = slow.next.next
+        return dummy.next
+
+
+
+        """
+            计算链表长度
+
+        pre = head
+        count = 0
+        while pre:
+            count += 1
+            pre = pre.next        
+        dummy = ListNode(0, head)
+        cur = dummy
+        for i in range(1,count-n+1):
+            cur = cur.next
+        cur.next = cur.next.next
+        return dummy.next
+        """
+
+ln = listnode()
+res = Solution().removeNthFromEnd(ln.list_node([1,2,3,4,5]),2)
+print(ln.listNodeToString(res))
