@@ -16,13 +16,22 @@ class Solution:
     def moveZeroes(self, nums: List[int]) -> None:
         """
         Do not return anything, modify nums in-place instead.
+        第一次遍历:
+            count即是游标也是非0元素的个数
+            遇到非零元素 
+                令count指向的值变为非零元素
+                同时令count向右移动移动一位
+        第二次遍历
+            依据非0元素的个数
+            将非零元素以后的值均变为0 
         """
         count = 0
-        for i in range(len(nums)-1):
-            if nums[i] == 0:
+        for i in range(len(nums)):
+            if nums[i] != 0:
+                nums[count] = nums[i]
                 count += 1
-                nums[i] = nums[i+1]
-        
+        for j in range(count,len(nums)):
+            nums[j] = 0
         return nums
 
 print(Solution().moveZeroes([0,1,0,3,12]))
