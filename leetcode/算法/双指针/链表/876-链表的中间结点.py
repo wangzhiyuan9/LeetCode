@@ -21,11 +21,24 @@ from ListNode import listnode,ListNode
 
 class Solution:
     def middleNode(self, head: ListNode) -> ListNode:
+        '''
+            快慢双指针
+            快的每次走两步
+            满的每次走一步
+            当快的指针到结尾时
+            满的刚好在中间节点
+        '''
 
-        
-        return head
+        dummy = ListNode(0,head)
+        fast = head
+        slow = dummy
+        while fast and fast.next:
+            fast = fast.next.next 
+            slow = slow.next
+        dummy.next = slow.next
+        return dummy.next
 
 ln = listnode()
-res = Solution().middleNode(ln.list_node([1,2,3,4,5]))
+res = Solution().middleNode(ln.list_node([1,2,4,5]))
 print(ln.listNodeToString(res))
 

@@ -24,14 +24,19 @@ class Solution:
             快慢双指针
             快的指针比慢的指针快n  因此快指针到达尾部时 慢指针正好指向倒数第n个节点
         """
+        # 定义一个快的指针fast
         fast = head
+        # 定义虚节点和慢指针slow
         dummy = ListNode(0,head)
         slow = dummy
+        # 先将fast指针指向第n个节点
         for i in range(n):
             fast = fast.next
+        # 现在fast比slow快n，当fast到达尾节点时 slow正好在倒数第n个节点
         while fast:
             fast = fast.next
             slow = slow.next
+        # 这时将slow指向slow 的下两个节点  相当于将倒数第n个节点删除
         slow.next = slow.next.next
         return dummy.next
 
