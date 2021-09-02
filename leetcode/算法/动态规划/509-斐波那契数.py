@@ -22,4 +22,11 @@
 """
 class Solution:
     def fib(self, n: int) -> int:
-        pass
+        if n < 2:
+            return n
+        p1,p2,num=0,0,1
+        for i in range(1,n):
+            p1,p2=p2,num
+            num = p1+p2
+        return num
+print(Solution().fib(4))
