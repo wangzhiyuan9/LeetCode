@@ -4,7 +4,6 @@
     重构后的矩阵需要将原始矩阵的所有元素以相同的 行遍历顺序 填充。
     如果具有给定参数的 reshape 操作是可行且合理的，则输出新的重塑矩阵；否则，输出原始矩阵。
 
- 
 
     示例 1：
         输入：mat = [[1,2],[3,4]], r = 1, c = 4
@@ -17,4 +16,7 @@
 from typing import List
 class Solution:
     def matrixReshape(self, mat: List[List[int]], r: int, c: int) -> List[List[int]]:
+        
         pass
+
+print(Solution().matrixReshape(mat = [[1,2],[3,4]], r = 1, c = 4))

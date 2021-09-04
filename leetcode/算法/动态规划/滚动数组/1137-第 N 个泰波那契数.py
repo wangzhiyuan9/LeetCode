@@ -17,4 +17,13 @@
 """
 class Solution:
     def tribonacci(self, n: int) -> int:
-        pass
+        if n<2:
+            return n
+        p1,p2,num=0,0,1
+        p = None
+        for i in range(1,n):
+            p = num
+            num = num+p1+p2
+            p1,p2 = p2,p
+        return num
+print(Solution().tribonacci(4))
