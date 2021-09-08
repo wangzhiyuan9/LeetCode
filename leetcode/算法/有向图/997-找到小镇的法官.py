@@ -25,8 +25,8 @@ class Solution:
         for i in trust:
             list_[i[0]-1] -= 1
             list_[i[1]-1] += 1
-        for i in list_:
-            if i == n-1:
+        for i in range(n):
+            if list_[i] == n-1:
                 return i+1
         return -1
 print(Solution().findJudge(2,[[1,2]]))
