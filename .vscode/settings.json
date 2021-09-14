@@ -1,4 +1,5 @@
 {
     "jupyter.jupyterServerType": "local",
-    "git. allowForcePush":true
+    "git. allowForcePush":true,
+    "python.analysis.disabled": ["unresolved-import"]
 }
