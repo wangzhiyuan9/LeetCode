@@ -26,7 +26,26 @@ class Solution:
     def hanota(self, A: List[int], B: List[int], C: List[int]) -> List:
         """
         Do not return anything, modify C in-place instead.
+        1.当只有一个盘子时，可以直接将其从A移动到C。
+        2.当盘子个数大于1时，解决汉诺塔问题，可以分为3步。
+            （1）把A上边的n-1盘子通过C移动到B上。
+            （2）把A上剩下的一个盘子直接移动到C上。
+            （3）把B上的n-1个盘子通过A移动到C上。
         """
-        pass
+        n = len(A)
+        self.move(n,A,B,C)
+        return C
+    def move(self,num,A,B,C):
+        if num == 1:
+            C.append(A.pop()) 
+        else:
+            print("0")
+            self.move(num-1,A,C,B)
+            print("1")
+            C.append(A.pop())
+            print("2")
+            self.move(num-1,B,A,C)
+            print("3")
 
-print(Solution().hanota([2, 1, 0],[],[]))
+
+print(Solution().hanota([4,2, 1, 0],[],[]))

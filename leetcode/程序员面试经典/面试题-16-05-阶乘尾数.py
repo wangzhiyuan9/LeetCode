@@ -15,5 +15,14 @@
 
 class Solution:
     def trailingZeroes(self, n: int) -> int:
-        pass
+        """
+            计算阶乘中 2*5 的个数
+            2的个数肯定比5多   因此5的个数 就是 2*5的个数
+        """
+        if n == 0: return 0
+        s = 0
+        while n > 0:
+            n = n // 5
+            s += n
+        return s
 print(Solution().trailingZeroes(3))
